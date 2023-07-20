@@ -1,4 +1,4 @@
-# Date after 100 Days from Today
+# Date after 100 Days from Today and Today's date
 
 Given an `app.js` file, write an API with path `/` using express JS to send the date after 100 days from today as a response in `DD/MM/YYYY` format.
 
