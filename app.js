@@ -4,6 +4,7 @@
 ->express: This is the name of the module you are importing, which is the Express.js framework.
 */
 const express = require("express"); // importing the Express.js framework.
+const addDays = require("date-fns/addDays");
 
 /*
 It appears you are creating an instance of an Express server by calling the express() function. This instance allows you to configure and define routes for your web application.
@@ -13,14 +14,20 @@ This instance represents your entire web application and allows you to use vario
 const app = express();
 
 /*
-The code you provided sets up an Express.js route that responds to incoming GET requests to the root path ("/"). When a client makes a GET request to your server, the server will respond with the current date and time as a response.
+The code you provided sets up an Express.js route that responds to incoming GET
+ requests to the root path ("/"). When a client makes a GET request to your server,
+  the server will respond with the current date and time as a response.
+
+   
 */
-app.get("/date", (requestBody, responseBody) => {
+app.get("/", (requestBody, responseBody) => {
   const todayDate = new Date();
+  const updatedDate = addDays(todayDate, 100);
   responseBody.send(
-    `${todayDate.getDate()}-${
-      todayDate.getMonth() + 1
-    }-${todayDate.getFullYear()}`
+    `${updatedDate.getDate()}/${
+      updatedDate.getMonth() + 1
+    }/${updatedDate.getFullYear()}`
   );
 });
+
 module.exports = app;
